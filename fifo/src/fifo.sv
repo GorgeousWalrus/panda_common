@@ -93,7 +93,7 @@ begin
       write_cnt <= write_cnt-1;
     end else if(!full && we_i) begin
       // We write, increase write counter
-      data[write_cnt[2:0]] <= din_i;
+      data[write_cnt[$clog2(DEPTH)-1:0]] <= din_i;
       write_cnt <= write_cnt+1;      
     end
   end
