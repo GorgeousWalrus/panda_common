@@ -85,7 +85,7 @@ begin
       // We read and write at the same time, dont increase write counter
       for(int i = 0; i < DEPTH-1; i = i + 1)
         data[i] <= data[i+1];
-      data[write_cnt[2:0]-1] <= din_i;
+      data[write_cnt[$clog2(DEPTH)-1:0]-1] <= din_i;
     end else if (!empty && re_i) begin
       // We read, decrease write counter
       for(int i = 0; i < DEPTH-1; i = i + 1)
